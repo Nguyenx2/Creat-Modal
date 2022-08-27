@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-6.1.2-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <button class="open-modal-btn js-open-btn">Open Modal</button>
+    <div class="modal js-modal">
+        <div class="modal__container js-modal-container">
+            <div class="modal__header">
+                <p>Creat Modal</p>
+                <i class="fa-solid fa-xmark js-close-icon"></i>
+            </div>
+            <div class="modal__body">
+                <h2>Modal</h2>
+                <p>Đây là phần body của Modal</p>
+            </div>
+            <div class="modal__footer">
+                <button class="close-modal-btn js-close-btn">Close</button>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const modal = document.querySelector('.js-modal')
+        const modalOpenBtn = document.querySelector('.js-open-btn')
+        const modalCloseBtn = document.querySelector('.js-close-btn')
+        const modalCloseIcon = document.querySelector('.js-close-icon')
+        const modalContainter = document.querySelector('.js-modal-container')
+        
+        function showModal() {
+            modal.classList.add('open')
+        }
+
+        function hideModal() {
+            modal.classList.remove('open')
+        }
+        modalOpenBtn.addEventListener("click",showModal)
+        modalCloseBtn.addEventListener("click",hideModal)
+        modalCloseIcon.addEventListener("click",hideModal)
+        modal.addEventListener("click", hideModal)
+        modalContainter.addEventListener("click", function(e) {
+            e.stopPropagation();
+        })
+    </script>
+</body>
+</html>
